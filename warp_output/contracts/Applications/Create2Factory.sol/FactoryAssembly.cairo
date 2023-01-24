@@ -4,7 +4,7 @@
 from warplib.memory import wm_read_felt, wm_read_256, wm_new, wm_index_dyn, wm_dyn_array_length, wm_to_felt_array
 from starkware.cairo.common.uint256 import uint256_sub, uint256_add, Uint256
 from starkware.cairo.common.alloc import alloc
-from warplib.maths.utils import narrow_safe, felt_to_uint256, uint256_to_address_felt
+from warplib.maths.utils import narrow_safe, felt_to_uint256
 from warplib.maths.external_input_check_address import warp_external_input_check_address
 from warplib.maths.external_input_check_ints import warp_external_input_check_int256, warp_external_input_check_int8
 from starkware.cairo.common.dict import dict_write
@@ -15,7 +15,6 @@ from starkware.starknet.common.syscalls import emit_event, get_contract_address
 from starkware.cairo.common.dict_access import DictAccess
 from starkware.cairo.common.default_dict import default_dict_new, default_dict_finalize
 from starkware.cairo.common.cairo_keccak.keccak import finalize_keccak
-from warplib.maths.int_conversions import warp_int256_to_int160, warp_uint256
 
 
 struct cd_dynarray_felt{
@@ -259,6 +258,8 @@ namespace FactoryAssembly{
         
         extern_input_check0(__warp_4_bytecode_len, __warp_4_bytecode);
         
+        let __warp_6 = 0;
+        
         local __warp_4_bytecode_dstruct : cd_dynarray_felt = cd_dynarray_felt(__warp_4_bytecode_len, __warp_4_bytecode);
         
         let (__warp_4_bytecode_mem) = cd_to_memory0(__warp_4_bytecode_dstruct);
@@ -269,25 +270,19 @@ namespace FactoryAssembly{
         
         let (__warp_se_5) = abi_encode_packed1(255, __warp_se_3, __warp_5__salt, __warp_se_4);
         
-        let (__warp_7_hash) = warp_keccak(__warp_se_5);
-        
-        let (__warp_se_6) = warp_int256_to_int160(__warp_7_hash);
-        
-        let (__warp_se_7) = warp_uint256(__warp_se_6);
-        
-        let (__warp_se_8) = uint256_to_address_felt(__warp_se_7);
+        let (hash) = warp_keccak(__warp_se_5);
         
         default_dict_finalize(warp_memory_start, warp_memory, 0);
         
         finalize_keccak(keccak_ptr_start, keccak_ptr);
         
-        return (__warp_se_8,);
+        return (__warp_6,);
     }
     }
 
 
     @external
-    func deploy_9c4ae2d0{syscall_ptr : felt*, range_check_ptr : felt, bitwise_ptr : BitwiseBuiltin*}(bytecode_len : felt, bytecode : felt*, __warp_8__salt : Uint256)-> (){
+    func deploy_9c4ae2d0{syscall_ptr : felt*, range_check_ptr : felt, bitwise_ptr : BitwiseBuiltin*}(bytecode_len : felt, bytecode : felt*, __warp_7__salt : Uint256)-> (){
     alloc_locals;
     let (local keccak_ptr_start : felt*) = alloc();
     let keccak_ptr = keccak_ptr_start;
@@ -297,13 +292,13 @@ namespace FactoryAssembly{
     with warp_memory, keccak_ptr{
 
         
-        warp_external_input_check_int256(__warp_8__salt);
+        warp_external_input_check_int256(__warp_7__salt);
         
         extern_input_check0(bytecode_len, bytecode);
         
-        let __warp_9_addr = 0;
+        let __warp_8_addr = 0;
         
-        _emit_Deployed_b03c53b2(__warp_9_addr, __warp_8__salt);
+        _emit_Deployed_b03c53b2(__warp_8_addr, __warp_7__salt);
         
         default_dict_finalize(warp_memory_start, warp_memory, 0);
         
