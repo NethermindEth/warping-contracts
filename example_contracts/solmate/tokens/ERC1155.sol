@@ -3,7 +3,9 @@ pragma solidity >=0.8.0;
 
 /// @notice Minimalist and gas efficient standard ERC1155 implementation.
 /// @author Solmate (https://github.com/transmissions11/solmate/blob/main/src/tokens/ERC1155.sol)
-abstract contract ERC1155 {
+// abstract contract ERC1155 {
+contract ERC1155 {
+
     /*//////////////////////////////////////////////////////////////
                                  EVENTS
     //////////////////////////////////////////////////////////////*/
@@ -40,7 +42,7 @@ abstract contract ERC1155 {
                              METADATA LOGIC
     //////////////////////////////////////////////////////////////*/
 
-    function uri(uint256 id) public view virtual returns (string memory);
+    // function uri(uint256 id) public view virtual returns (string memory);
 
     /*//////////////////////////////////////////////////////////////
                               ERC1155 LOGIC
@@ -67,7 +69,8 @@ abstract contract ERC1155 {
         emit TransferSingle(msg.sender, from, to, id, amount);
 
         require(
-            to.code.length == 0
+            // to.code.length == 0
+            true
                 ? to != address(0)
                 : ERC1155TokenReceiver(to).onERC1155Received(msg.sender, from, id, amount, data) ==
                     ERC1155TokenReceiver.onERC1155Received.selector,
@@ -107,7 +110,8 @@ abstract contract ERC1155 {
         emit TransferBatch(msg.sender, from, to, ids, amounts);
 
         require(
-            to.code.length == 0
+            // to.code.length == 0
+            true
                 ? to != address(0)
                 : ERC1155TokenReceiver(to).onERC1155BatchReceived(msg.sender, from, ids, amounts, data) ==
                     ERC1155TokenReceiver.onERC1155BatchReceived.selector,
@@ -160,7 +164,8 @@ abstract contract ERC1155 {
         emit TransferSingle(msg.sender, address(0), to, id, amount);
 
         require(
-            to.code.length == 0
+            // to.code.length == 0
+            true
                 ? to != address(0)
                 : ERC1155TokenReceiver(to).onERC1155Received(msg.sender, address(0), id, amount, data) ==
                     ERC1155TokenReceiver.onERC1155Received.selector,
@@ -191,7 +196,8 @@ abstract contract ERC1155 {
         emit TransferBatch(msg.sender, address(0), to, ids, amounts);
 
         require(
-            to.code.length == 0
+            // to.code.length == 0
+            true
                 ? to != address(0)
                 : ERC1155TokenReceiver(to).onERC1155BatchReceived(msg.sender, address(0), ids, amounts, data) ==
                     ERC1155TokenReceiver.onERC1155BatchReceived.selector,

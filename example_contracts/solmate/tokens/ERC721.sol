@@ -3,7 +3,8 @@ pragma solidity >=0.8.0;
 
 /// @notice Modern, minimalist, and gas efficient ERC-721 implementation.
 /// @author Solmate (https://github.com/transmissions11/solmate/blob/main/src/tokens/ERC721.sol)
-abstract contract ERC721 {
+// abstract contract ERC721 {
+contract ERC721 {
     /*//////////////////////////////////////////////////////////////
                                  EVENTS
     //////////////////////////////////////////////////////////////*/
@@ -22,7 +23,7 @@ abstract contract ERC721 {
 
     string public symbol;
 
-    function tokenURI(uint256 id) public view virtual returns (string memory);
+    // function tokenURI(uint256 id) public view virtual returns (string memory);
 
     /*//////////////////////////////////////////////////////////////
                       ERC721 BALANCE/OWNER STORAGE
@@ -116,7 +117,7 @@ abstract contract ERC721 {
         transferFrom(from, to, id);
 
         require(
-            to.code.length == 0 ||
+            // to.code.length == 0 ||
                 ERC721TokenReceiver(to).onERC721Received(msg.sender, from, id, "") ==
                 ERC721TokenReceiver.onERC721Received.selector,
             "UNSAFE_RECIPIENT"
@@ -132,7 +133,7 @@ abstract contract ERC721 {
         transferFrom(from, to, id);
 
         require(
-            to.code.length == 0 ||
+            // to.code.length == 0 ||
                 ERC721TokenReceiver(to).onERC721Received(msg.sender, from, id, data) ==
                 ERC721TokenReceiver.onERC721Received.selector,
             "UNSAFE_RECIPIENT"
@@ -194,7 +195,7 @@ abstract contract ERC721 {
         _mint(to, id);
 
         require(
-            to.code.length == 0 ||
+            // to.code.length == 0 ||
                 ERC721TokenReceiver(to).onERC721Received(msg.sender, address(0), id, "") ==
                 ERC721TokenReceiver.onERC721Received.selector,
             "UNSAFE_RECIPIENT"
@@ -209,7 +210,7 @@ abstract contract ERC721 {
         _mint(to, id);
 
         require(
-            to.code.length == 0 ||
+            // to.code.length == 0 ||
                 ERC721TokenReceiver(to).onERC721Received(msg.sender, address(0), id, data) ==
                 ERC721TokenReceiver.onERC721Received.selector,
             "UNSAFE_RECIPIENT"
