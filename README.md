@@ -14,7 +14,26 @@ https://github.com/transmissions11/solmate
 
 -🟢solmate ERC20 works
 
--🔴fails with EIP-2612 STORAGE (commented out for now)
+-🔴EIP-2612 STORAGE:
+        
+-🟢ecrecover (uint160 in Warp) converted to be address:
+
+```solidity
+address recoveredAddress = 
+        address(
+                uint256(
+                        ecrecover(...)
+                )
+        );
+```
+
+-🔴chainId not supported yet:
+
+```solidity
+block.chainid
+```
+
+(commented out for now)
 
 ### WETH:
  

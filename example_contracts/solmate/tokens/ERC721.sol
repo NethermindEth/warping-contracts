@@ -219,16 +219,23 @@ contract ERC721 {
         );
     }
 
-    // //ADDED FOR WARP TESTING
+    // Added for Warp Testing:
+    // Test 1 Failed:
     // function isWallet(address account) public view returns (bool) {
-    //     // This method relies on extcodesize, which returns 0 for contracts in
-    //     // construction, since the code is only stored at the end of the
-    //     // constructor execution.
     //     uint size;
     //     assembly {
-    //         size := extcodesize(account)
+    //             size := extcodesize(account)
     //     }
     //     return size == 0;
+    // }
+    // Test 2 Failed: 
+    // function isWallet(address account) internal view returns (bool) {
+    //     bytes32 accountHash = 0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470;
+    //     bytes32 codeHash;    
+    //     assembly { 
+    //             codeHash := extcodehash(account) 
+    //     }
+    //     return (codeHash != accountHash && codeHash != 0x0) == false;
     // }
 
 }
