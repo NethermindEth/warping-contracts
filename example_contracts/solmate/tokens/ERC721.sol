@@ -211,11 +211,26 @@ contract ERC721 {
 
         require(
             // to.code.length == 0 ||
+            // WARP TEST
+            // isWallet(to) ||
                 ERC721TokenReceiver(to).onERC721Received(msg.sender, address(0), id, data) ==
                 ERC721TokenReceiver.onERC721Received.selector,
             "UNSAFE_RECIPIENT"
         );
     }
+
+    // //ADDED FOR WARP TESTING
+    // function isWallet(address account) public view returns (bool) {
+    //     // This method relies on extcodesize, which returns 0 for contracts in
+    //     // construction, since the code is only stored at the end of the
+    //     // constructor execution.
+    //     uint size;
+    //     assembly {
+    //         size := extcodesize(account)
+    //     }
+    //     return size == 0;
+    // }
+
 }
 
 /// @notice A generic interface for a contract which properly accepts ERC721 tokens.
