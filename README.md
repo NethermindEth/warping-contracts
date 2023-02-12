@@ -8,7 +8,6 @@ https://github.com/transmissions11/solmate
 
 ## solmate: 
 
-
 ## Tokens:
 
 ### ERC20: 
@@ -54,7 +53,7 @@ function isWallet(address account) public view returns (bool) {
 -🔴abstract contract type impacts:
   
 ```solidity
-    function tokenURI(uint256 id) public view virtual returns (string memory);
+function tokenURI(uint256 id) public view virtual returns (string memory);
 ```
 
 ### ERC1155:

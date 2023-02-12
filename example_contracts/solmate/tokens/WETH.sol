@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: AGPL-3.0-only
-pragma solidity >=0.8.0;
+pragma solidity 0.8.14; //Warp supports 0.8.14 
 
 import {ERC20} from "./ERC20.sol";
 
@@ -12,9 +12,9 @@ contract WETH is ERC20("Wrapped Ether", "WETH", 18) {
 
     // using SafeTransferLib for address;
 
-    event Deposit(address indexed from, uint256 amount);
+    // event Deposit(address indexed from, uint256 amount);
 
-    event Withdrawal(address indexed to, uint256 amount);
+    // event Withdrawal(address indexed to, uint256 amount);
 
     // function deposit() public payable virtual {
     //     _mint(msg.sender, msg.value);
@@ -22,16 +22,16 @@ contract WETH is ERC20("Wrapped Ether", "WETH", 18) {
     //     emit Deposit(msg.sender, msg.value);
     // }
 
-    function withdraw(uint256 amount) public virtual {
-        _burn(msg.sender, amount);
+    // function withdraw(uint256 amount) public virtual {
+    //     _burn(msg.sender, amount);
 
-        emit Withdrawal(msg.sender, amount);
+    //     emit Withdrawal(msg.sender, amount);
 
-        // Original:
-        // msg.sender.safeTransferETH(amount);
-        // Test (doesn't work either since ether and msg.value don't seem supported yet)
-        // payable(msg.sender).transfer(amount);
-    }
+    //     // Original:
+    //     // msg.sender.safeTransferETH(amount);
+    //     // Test (doesn't work either since ether and msg.value don't seem supported yet)
+    //     // payable(msg.sender).transfer(amount);
+    // }
 
     // receive() external payable virtual {
     //     deposit();
