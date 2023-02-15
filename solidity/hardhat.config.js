@@ -8,6 +8,7 @@ require("hardhat-deploy");
 require("hardhat-contract-sizer");
 require("hardhat-deploy-ethers");
 require("@openzeppelin/hardhat-upgrades");
+require("@nethermindeth/hardhat-warp");
 
 const { fund } = require("./tasks/fund");
 const { task } = require("hardhat/config");
