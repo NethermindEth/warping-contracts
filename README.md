@@ -8,7 +8,7 @@ the strategy serves as yield farming for OUSD holders and DAO members can vote o
 
 <hr>
 
-## ** Changes made **
+## **Changes made**
 
 1. OppenZeppelin/Context -> lib/EasyContext
 
@@ -36,4 +36,5 @@ deleted this line as it's not supported in warp
     }
 
 ```
+4. deleted checks for isContract(address) since everything is a contract on starknet, there is no EOA.
 
