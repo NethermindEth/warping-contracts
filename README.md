@@ -20,3 +20,6 @@ and
 // return bytes32(bytes20(addressValue));
 return bytes32(addressValue);
 ```
+Contract from:
+
+https://github.com/transmissions11/solmate/blob/main/src/utils/Bytes32AddressLib.sol
