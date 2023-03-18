@@ -1,2 +1,5 @@
 # warping-contracts
-Example Solidity contracts transpiled to Cairo using Warp
+Transpiles in Warp with no errors in Solidity 0.8.14 with:
+```shell
+bin/warp transpile exampleContracts/bulk/transfer/bulkSenderERC1155.sol
+```
